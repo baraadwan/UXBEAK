@@ -1,13 +1,15 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
+  experimental: {
+    serverComponentsExternalPackages: ['firebase-admin'],
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
-  images: {
-    unoptimized: true,
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  env: {
+    CUSTOM_ENV: process.env.CUSTOM_ENV || 'production',
   },
 }
 

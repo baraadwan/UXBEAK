@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Unbounded } from "next/font/google"
 import "./globals.css"
+import { AuthProvider } from "@/context/AuthContext"
 
 const inter = Inter({ subsets: ["latin"] })
 const unbounded = Unbounded({
@@ -22,7 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${unbounded.variable}`}>{children}</body>
+      <body className={`${inter.className} ${unbounded.variable}`}>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   )
 }
